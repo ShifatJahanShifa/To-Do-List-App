@@ -21,9 +21,67 @@ body {
     width: 100%;
     height: 100%;
     padding: 0 20;
+    gap: 500px;
+    /* position: relative; */
 }
 
+#sidebar {
+    left: 0%;
+    /* position: absolute; */
+    flex: 1/5;
+    transform: translateX(-20%);
+    width: 100%;
+    max-width: 400px;
+    height: 630px;
+    /* padding: 2rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1/5;
+    color:black;
+    border-radius: 20px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+}
+
+#sidebar h1 {
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.category-container li {
+    /* left: 10%;
+    /* position: absolute; */
+    /* top: 10%;  */
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(54, 59, 107, 0.3);
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: black;
+    /* position: relative; */
+    transition: box-shadow 0.2s ease;
+    border-radius: 30px;
+    width: 100%;
+    border-width: 2px;
+    border-color: black;
+}
+
+.category-container li:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
 .todo-app {
+    /* flex: 4/5; */
     width: 100%;
     max-width: 400px;
     padding: 2rem;
@@ -31,7 +89,11 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* position: absolute; */
+    left: 50%;
+    transform: translateX(-90%);
     gap: 30px;
+    flex: 4/5;
     color:black;
     border-radius: 20px;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
@@ -41,6 +103,50 @@ body {
 
 h1 {
     font-size: 2rem;
+}
+
+.todo-app .stat-container {
+    padding: 15px 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.todo-app .details {
+    width: 100%;
+}
+
+#progressbar {
+    width: 100%;
+    height: 7px;
+    background-color: rgba(6, 43, 52, 0.18);
+    position: relative;
+    margin-top: 15px;
+}
+
+#progress {
+    width: 0%;
+    height: 100%;
+    background-color: #227f84;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+#numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(84, 119, 153, 0.3);
+    border: 2px solid black;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .input-area {
@@ -63,7 +169,7 @@ h1 {
 }
 
 .input-area input::placeholder {
-    color: rgb(205, 209, 212);
+    color: rgb(255, 255, 255);
 }
 
 .input-area button {
@@ -73,7 +179,7 @@ h1 {
     padding: 13px 10px;
     border-radius: 50%;
     background-color: rgba(84, 119, 153, 0.3);
-    color: rgb(205, 209, 212);
+    color: rgb(255, 255, 255);
     border: 2px solid rgb(42, 67, 78);
     cursor: pointer;
     transition: all 0.2s ease;
@@ -85,6 +191,7 @@ h1 {
 }
 
 .todo-container {
+    /* width: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,6 +203,7 @@ h1 {
 
 #task-list li {
     display: flex;
+    gap: 5px;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(54, 59, 107, 0.3);
@@ -103,11 +211,106 @@ h1 {
     margin-bottom: 10px;
     font-size: 1.2rem;
     color: black;
-    position: relative;
+    /* position: relative; */
     transition: box-shadow 0.2s ease;
+    border-radius: 30px;
+    width: 100%;
 }
 
 #task-list li:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#task-list li .checkbox {
+    min-width: 20px;
+    height: 20px;
+    border: 2px solid rgb(17, 30, 63);
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: all 0.2s ease;
+    /* appearance: none; */
+}
+
+#task-list li .checkbox:checked {
+    background-color: rgb(53, 94, 161);
+    transform: scale(1.1);
+}
+
+#task-list li .checkbox:checked+span {
+    text-decoration: line-through;
+}
+
+#task-list li .checkbox:checked::before {
+    content: '\2713';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+#task-list li span {
+    flex: 1;
+    word-wrap: break-word;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: 50px;
+    margin-right: auto;
+}
+
+.task-buttons button {
+    background-color: rgb(163, 184, 224);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    /* color: #fff; */
+    font-size: 0.8rem;
+    cursor: pointer;
+    transform: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-buttons button:hover {
+    transform: scale(1.2);
+}
+
+.task-buttons .edit-btn {
+    background-color: #187c82;
+}
+
+.task-buttons .del-btn {
+    background-color: #da3434;
+}
+
+@media (max-width: 600px){
+    .container {
+        padding: 0 20px;
+        margin: 0 10px;
+    }
+
+    .todo-app {
+        padding: 1.5rem;
+        gap: 20px;
+    }
+
+    #numbers {
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+    }
+
+    .input-area input {
+        font-size: 1rem;
+    }
+
+    #task-list li {
+        font-size: 1rem;
+    }
+}
