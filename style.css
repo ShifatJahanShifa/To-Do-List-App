@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     background: url(images/todo-background.jpg) no-repeat center center/cover;
     background-color: rgb(70, 130, 186);
 }
@@ -21,25 +21,19 @@ body {
     width: 100%;
     height: 100%;
     padding: 0 20;
-    gap: 500px;
-    /* position: relative; */
+    gap: 400px;
 }
 
 #sidebar {
     left: 0%;
-    /* position: absolute; */
-    flex: 1/5;
     transform: translateX(-20%);
-    width: 100%;
-    max-width: 400px;
+    width: 300px;
     height: 630px;
-    /* padding: 2rem; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 30px;
-    flex: 1/5;
     color:black;
     border-radius: 20px;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
@@ -53,22 +47,13 @@ body {
 }
 
 .category-container li {
-    /* left: 10%;
-    /* position: absolute; */
-    /* top: 10%;  */
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: center;
+    list-style-type: none;
     background-color: rgba(54, 59, 107, 0.3);
     padding: 10px 15px;
     margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 15px;
     color: black;
-    /* position: relative; */
-    transition: box-shadow 0.2s ease;
     border-radius: 30px;
-    width: 100%;
     border-width: 2px;
     border-color: black;
 }
@@ -79,21 +64,15 @@ body {
     cursor: pointer;
 }
 
-
 .todo-app {
-    /* flex: 4/5; */
-    width: 100%;
-    max-width: 400px;
-    padding: 2rem;
+    width: 400px;
+    padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* position: absolute; */
-    left: 50%;
     transform: translateX(-90%);
     gap: 30px;
-    flex: 4/5;
     color:black;
     border-radius: 20px;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
@@ -102,7 +81,7 @@ body {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 25px;
 }
 
 .todo-app .stat-container {
@@ -124,7 +103,6 @@ h1 {
     width: 100%;
     height: 7px;
     background-color: rgba(6, 43, 52, 0.18);
-    position: relative;
     margin-top: 15px;
 }
 
@@ -146,7 +124,7 @@ h1 {
     border: 2px solid black;
     border-radius: 50%;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 25px;
 }
 
 .input-area {
@@ -160,7 +138,7 @@ h1 {
 .input-area input {
     flex: 1;
     padding: 10px 17px;
-    font-size: 1.1rem;
+    font-size: 15px;
     border: 1px solid black;
     outline: none;
     border-radius: 20px;
@@ -191,7 +169,6 @@ h1 {
 }
 
 .todo-container {
-    /* width: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -209,9 +186,8 @@ h1 {
     background-color: rgba(54, 59, 107, 0.3);
     padding: 10px 15px;
     margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 15px;
     color: black;
-    /* position: relative; */
     transition: box-shadow 0.2s ease;
     border-radius: 30px;
     width: 100%;
@@ -222,14 +198,12 @@ h1 {
 }
 
 #task-list li .checkbox {
-    min-width: 20px;
+    width: 20px;
     height: 20px;
     border: 2px solid rgb(17, 30, 63);
     background: transparent;
-    border-radius: 50%;
     cursor: pointer;
-    transform: all 0.2s ease;
-    /* appearance: none; */
+    transition: all 0.2s ease;
 }
 
 #task-list li .checkbox:checked {
@@ -241,14 +215,14 @@ h1 {
     text-decoration: line-through;
 }
 
-#task-list li .checkbox:checked::before {
+/* #task-list li .checkbox:checked::before {
     content: '\2713';
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
-}
+    font-size: 12px;
+} */
 
 #task-list li span {
     flex: 1;
@@ -269,9 +243,9 @@ h1 {
     width: 30px;
     height: 30px;
     /* color: #fff; */
-    font-size: 0.8rem;
+    font-size: 12px;
     cursor: pointer;
-    transform: all 0.2s ease;
+    transition: all 0.2s ease;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -287,30 +261,4 @@ h1 {
 
 .task-buttons .del-btn {
     background-color: #da3434;
-}
-
-@media (max-width: 600px){
-    .container {
-        padding: 0 20px;
-        margin: 0 10px;
-    }
-
-    .todo-app {
-        padding: 1.5rem;
-        gap: 20px;
-    }
-
-    #numbers {
-        width: 60px;
-        height: 60px;
-        font-size: 1rem;
-    }
-
-    .input-area input {
-        font-size: 1rem;
-    }
-
-    #task-list li {
-        font-size: 1rem;
-    }
 }
