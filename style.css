@@ -215,14 +215,6 @@ h1 {
     text-decoration: line-through;
 }
 
-/* #task-list li .checkbox:checked::before {
-    content: '\2713';
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-} */
 
 #task-list li span {
     flex: 1;
