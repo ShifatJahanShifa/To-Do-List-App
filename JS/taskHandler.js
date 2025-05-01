@@ -1,26 +1,14 @@
 import { saveTasksToLocalStorage } from './storage.js';
 import { updateProgress, toggleEmptyState } from './ui.js';
-// import { categoryName } from './listener.js'
 import { taskList, taskInput } from './domElements.js'
 
 let editing = false, idx = 0;
 
-// export const initializeTaskHandler = (list, input) => {
-//     taskList = list;
-//     taskInput = input;
-// };
 
-const categories=['📚 Study','💼 Work','🏃‍♂️ Health','🛒 Shopping','🎯 Personal Goals',
-    '🧹 Chores','💰 Finance','🧑‍🤝‍🧑 Social','🎮 Entertainment','✈️ Travel']
-
-export const addTask = (categoryName,text, completed = false, playSound = true) => {
+export const addTask = (categoryName,text, completed = false) => {
     const taskText = text || taskInput.value.trim();
     if (!taskText) return;
-    if(!categories.includes(categoryName)) 
-    {
-        alert('select a category first')
-        return
-    }
+
     console.log('cat',categoryName)
     const li = document.createElement('li');
     li.innerHTML = `
@@ -47,9 +35,9 @@ export const addTask = (categoryName,text, completed = false, playSound = true) 
     }
 
     taskInput.value = '';
-    toggleEmptyState(taskList);
-    updateProgress(taskList, false, false, playSound);
-    saveTasksToLocalStorage(taskList, categoryName);
+    toggleEmptyState();
+    updateProgress();
+    saveTasksToLocalStorage( categoryName, li);
 };
 
 const setupTaskEvents = (li,categoryName) => {
@@ -59,10 +47,9 @@ const setupTaskEvents = (li,categoryName) => {
 
     checkbox.addEventListener('change', () => {
         const isChecked = checkbox.checked;
-        li.classList.toggle('completed', isChecked);
         toggleTaskState(editBtn, isChecked);
-        updateProgress(taskList, true, true, true);
-        saveTasksToLocalStorage(taskList, categoryName);
+        updateProgress();
+        saveTasksToLocalStorage(categoryName,li);
     });
 
     editBtn.addEventListener('click', () => {
@@ -75,9 +62,9 @@ const setupTaskEvents = (li,categoryName) => {
 
     delBtn.addEventListener('click', () => {
         li.remove();
-        toggleEmptyState(taskList);
-        updateProgress(taskList);
-        saveTasksToLocalStorage(taskList, categoryName);
+        toggleEmptyState();
+        updateProgress();
+        saveTasksToLocalStorage( categoryName);
     });
 
     if (checkbox.checked) {

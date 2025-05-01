@@ -1,39 +1,35 @@
 import { addTask } from "./taskHandler.js"
 import { loadTasksFromLocalStorage } from "./storage.js"
-import { toggleEmptyState, updateHeading, updateProgress } from "./ui.js"
-
+import {  toggleEmptyState, updateHeading, updateProgress } from "./ui.js"
+import { taskList, taskInput, addTaskBtn, categoryContainer } from './domElements.js'
 export let categoryName='📚 Study';
 
-export const attachEventListeners = (taskList, taskInput, addTaskBtn, categoryContainer) => {
-    // initializeTaskHandler(taskList, taskInput)  // will back to it
-
+export const attachEventListeners = () => {
     const categories = categoryContainer.querySelectorAll('li');
-    categories.forEach(li => {
-        li.addEventListener('click', (event) => {
-            const selectedLi = event.target;
-            const selectedCategory = selectedLi.textContent;
-            updateHeading(selectedCategory);
-            taskList.innerHTML = '';
 
-            loadTasksFromLocalStorage(selectedCategory)
-            categoryName=selectedCategory
+    for(let i=0;i<categories.length;i++)
+    {
+        categories[i].addEventListener('click', () => {
+            categoryName=categories[i].textContent;
+            updateHeading(categoryName);
+            taskList.innerHTML = '';
+            loadTasksFromLocalStorage(categoryName)
             console.log('listener init',taskList.length)
-            toggleEmptyState(taskList);
-            updateProgress(taskList, false, false)
+            toggleEmptyState()
+            updateProgress()
         });
-    }); 
+    } 
 
     addTaskBtn.addEventListener('click', (event) => 
-        {
-            event.preventDefault()
-            addTask(categoryName)
-        })
+    {
+        event.preventDefault()
+        addTask(categoryName)
+    })
     taskInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault()
-            console.log('bbbb',categoryName)
+            // console.log('bbbb',categoryName)
             addTask(categoryName)
         }
     })
-
 };
