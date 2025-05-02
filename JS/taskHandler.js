@@ -37,7 +37,7 @@ export const addTask = (categoryName,text, completed = false) => {
     taskInput.value = '';
     toggleEmptyState();
     updateProgress();
-    saveTasksToLocalStorage( categoryName, li);
+    saveTasksToLocalStorage( categoryName);
 };
 
 const setupTaskEvents = (li,categoryName) => {
@@ -49,7 +49,7 @@ const setupTaskEvents = (li,categoryName) => {
         const isChecked = checkbox.checked;
         toggleTaskState(editBtn, isChecked);
         updateProgress();
-        saveTasksToLocalStorage(categoryName,li);
+        saveTasksToLocalStorage(categoryName);
     });
 
     editBtn.addEventListener('click', () => {
