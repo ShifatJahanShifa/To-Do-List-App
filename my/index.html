@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ToDo App</h1>
+    <div id="container">
+        <div id="selection">
+            <label for="category">Select One Category</label> 
+            <select id="category" name="category">
+                <option>📚 Study</option>
+                <option>💼 Work</option>
+                <option>🏃‍♂️ Health</option>
+                <option>🛒 Shopping</option>
+                <option>🎯 Personal Goals</option>
+                <option>🧹 Chores</option>
+                <option>💰 Finance</option>
+                <option>🧑‍🤝‍🧑 Social</option>
+                <option>🎮 Entertainment</option>
+                <option>✈️ Travel</option>
+            </select>
+        </div>
+
+        <div id="input-area">
+            <form>
+                <input type="text" id="input-box" placeholder="Add a new task...">
+                <button type="submit" id="submit-button">Add</button>
+            </form>
+        </div> 
+
+        <div id="task-list">
+            <ul id="list-items">
+
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

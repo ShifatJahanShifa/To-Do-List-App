@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#selection {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#input-area {
+    text-align: center;
+    margin-bottom: 20px;
+}
