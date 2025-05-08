@@ -6,9 +6,7 @@ import { selectedCategory, updateProgress } from "./JavaScripts/ui.js";
 
 document.addEventListener('DOMContentLoaded',()=>{
     initializeDomElements()
-
-    updateProgress()
     addListener()
-
     loadTasksFromLocalStorage(selectedCategory)
+    updateProgress()
 })
