@@ -1,3 +1,0 @@
-https://pngtree.com/element/down?id=Njc4MTg5NA==&type=1&time=1745649951&token=NTFiMDMzZWE4ZGY2MGJhNGYwZmU4YjY3NmE5NjA3YjQ=&t=0
-https://pixabay.com/sound-effects/
-https://confetti.js.org/more.html

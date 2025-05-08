@@ -3,57 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>To-Do-List</title>
-    <link rel="icon" type="image/x-icon" href="/images/apple-touch-icon.png">
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div id="sidebar">
-            <div class="sidebar-content">
-                <h1>Select Category</h1>
-                <ul class="category-container">
-                    <li>📚 Study</li>
-                    <li>💼 Work</li>
-                    <li>🏃‍♂️ Health</li>
-                    <li>🛒 Shopping</li>
-                    <li>🎯 Personal Goals</li>
-                    <li>🧹 Chores</li>
-                    <li>💰 Finance</li>
-                    <li>🧑‍🤝‍🧑 Social</li>
-                    <li>🎮 Entertainment</li>
-                    <li>✈️ Travel</li>
-                </ul>
-            </div>
+    <h1>ToDo App</h1>
+    <div id="container">
+        <div id="selection">
+            <label for="category">Select One Category</label> 
+            <select id="category" name="category">
+                <option>📚 Study</option>
+                <option>💼 Work</option>
+                <option>🏃‍♂️ Health</option>
+                <option>🛒 Shopping</option>
+                <option>🎯 Personal Goals</option>
+                <option>🧹 Chores</option>
+                <option>💰 Finance</option>
+                <option>🧑‍🤝‍🧑 Social</option>
+                <option>🎮 Entertainment</option>
+                <option>✈️ Travel</option>
+            </select>
         </div>
-        <div class="todo-app">
-            <h1 id="heading">To-Do List</h1>
-            <div class="stat-container">
-                <div class="details">
-                    <h2>Your Progress</h2>
-                    <div id="progressbar">
-                        <div id="progress">
 
-                        </div>
-                    </div>
-                </div>
-                <div class="stats-number">
-                    <p id="numbers">0 / 0</p>
-                </div>
-            </div>
-            <form class="input-area">
-                <input type="text" id="task-input" placeholder="Add a new task...">
-                <button type="button" id="add-task-btn"><i class="fa-solid fa-plus"></i></button>
+        <p id="progress-number">
+        </p>
+
+        <div id="input-area">
+            <form>
+                <input type="text" id="input-box" placeholder="Add a new task...">
+                <button type="submit" id="submit-button">Add</button>
             </form>
-            <div class="todo-container">
-                <ul id="task-list"></ul>
-                
-            </div>
+        </div> 
+
+        <div id="task-list">
+            <ul id="list-items">
+
+            </ul>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
-    <script src="index.js" type="module"></script>
+    <script type="module" src="script.js"></script>
 </body>
-</html>  
+</html>
