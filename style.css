@@ -27,23 +27,63 @@ h1 {
     margin-bottom: 20px;
 }
 
-#task-list {
+#input-box {
+    padding: 5px;
+    outline: none;
+}
+
+#submit-button {
+    padding: 5px;
+}
+
+#task-lists {
     text-align: center;
 }
 
-.task-lists {
+.task-list {
     margin-bottom: 5px;
 }
 
 .list-item {
     margin-right: 5px;
+    transform: scale(1.5);
 }
 
-#update {
+.list-item:checked+span{
+    text-decoration: line-through;
+}
+
+.list-item:checked ~ #update{
+    opacity: 30%;
+    /* background-color: #a89090c2; */
+}
+
+span {
+    font-size: large;
+}
+
+P{
+    font-size: large;
+    margin-bottom: 5px;
+}
+
+label {
+    font-size: large;
+}
+
+.update {
     margin-left: 20px;
     margin-right: 20px;
+    padding: 5px;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: rgb(85, 214, 122);
 }
 
-#delete {
+.delete {
     margin-right: 20px;   
+    padding: 5px;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: rgb(213, 104, 104);
 }

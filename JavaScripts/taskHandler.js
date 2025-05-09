@@ -32,7 +32,7 @@ export const addTask=(selectedCategory, text="",completed=false)=>{
 // create an list item and add update, delete event.
 export const addItems=(selectedCategory,taskText,completed)=>{
     const listItem=document.createElement('li')
-    listItem.className='task-lists'
+    listItem.className='task-list'
 
     const input=document.createElement('input')
     input.type='checkbox'
@@ -56,7 +56,7 @@ export const addItems=(selectedCategory,taskText,completed)=>{
     updateBtn.id='update'
     updateBtn.addEventListener('click',(event)=>{
         event.preventDefault()
-        // if(!input.checked) 
+        if(!input.checked) 
         {
             inputBox.value=text.innerText
             editing=true
@@ -69,7 +69,8 @@ export const addItems=(selectedCategory,taskText,completed)=>{
     deleteBtn.innerText='Delete'
     deleteBtn.id='delete'
     deleteBtn.addEventListener('click',()=>{
-        if(editing) editing=false
+        let idx2=Array.from(list.children).indexOf(listItem)
+        if(editing && (idx==idx2)) editing=false
         listItem.remove()
         saveTasksToLocalStorage(selectedCategory)
         updateProgress()
