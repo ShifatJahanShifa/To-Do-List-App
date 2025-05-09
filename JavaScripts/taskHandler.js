@@ -1,4 +1,4 @@
-import { inputBox, list, form } from "./domElements.js"
+import { inputBox, list } from "./domElements.js"
 import { saveTasksToLocalStorage } from "./storage.js";
 import { updateProgress } from "./ui.js";
 
