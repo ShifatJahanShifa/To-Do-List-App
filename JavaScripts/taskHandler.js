@@ -1,4 +1,4 @@
-import { inputBox, list } from "./domElements.js"
+import { inputBox, list, form } from "./domElements.js"
 import { saveTasksToLocalStorage } from "./storage.js";
 import { updateProgress } from "./ui.js";
 
@@ -17,16 +17,15 @@ export const addTask=(selectedCategory,completed=false)=>{
         span.innerText=taskText;
         editing = false;
         inputBox.value=""
-        saveTasksToLocalStorage(selectedCategory)
-        updateProgress()
+        saveTasksToLocalStorage(selectedCategory)   
     }
     else 
     {
         addItems(selectedCategory,taskText,completed)
         inputBox.value=""
-        saveTasksToLocalStorage(selectedCategory)
+        saveTasksToLocalStorage(selectedCategory)   
         updateProgress()
-    }
+    }    
 }
 
 
