@@ -8,9 +8,6 @@ export const addListener=()=>{
     let category=selectedCategory;
     categoryNames.addEventListener('change',()=>{
         category=categoryNames.value;
-       
-        console.log(category)
-        // empty the ul. render the items from storage. 
         list.innerHTML=''
         loadTasksFromLocalStorage(category)
         updateProgress()

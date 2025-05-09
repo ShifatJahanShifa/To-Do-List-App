@@ -53,7 +53,7 @@ h1 {
     text-decoration: line-through;
 }
 
-.list-item:checked ~ #update{
+.list-item:checked ~ .update{
     opacity: 30%;
     /* background-color: #a89090c2; */
 }

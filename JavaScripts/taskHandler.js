@@ -1,11 +1,10 @@
 import { inputBox, list } from "./domElements.js"
 import { saveTasksToLocalStorage } from "./storage.js";
 import { updateProgress } from "./ui.js";
-// import { selectedCategory } from "./ui";
 
-export let editing=false, idx=0;
+let editing=false, idx=0;
 
-export const addTask=(selectedCategory, text="",completed=false)=>{
+export const addTask=(selectedCategory,completed=false)=>{
     let taskText=inputBox.value
     if(taskText==undefined) return;
     taskText=taskText.trim()
@@ -13,23 +12,24 @@ export const addTask=(selectedCategory, text="",completed=false)=>{
 
     if(editing) 
     {
-        // add updated task text, 
-        console.log(list.children[idx])
         const listItem=list.children[idx]
         const span=listItem.querySelector('span');
         span.innerText=taskText;
         editing = false;
+        inputBox.value=""
+        saveTasksToLocalStorage(selectedCategory)
+        updateProgress()
     }
     else 
     {
         addItems(selectedCategory,taskText,completed)
+        inputBox.value=""
+        saveTasksToLocalStorage(selectedCategory)
+        updateProgress()
     }
-    inputBox.value=""
-    saveTasksToLocalStorage(selectedCategory)
-    updateProgress()
 }
 
-// create an list item and add update, delete event.
+
 export const addItems=(selectedCategory,taskText,completed)=>{
     const listItem=document.createElement('li')
     listItem.className='task-list'
@@ -42,20 +42,15 @@ export const addItems=(selectedCategory,taskText,completed)=>{
         completed=input.checked
         saveTasksToLocalStorage(selectedCategory)
         updateProgress()
-        // input.checked=completed
     })
-    console.log('dd',input.checked)
 
     const text=document.createElement('span')
     text.innerText=taskText
 
-    const div=document.createElement('div')
-
     const updateBtn=document.createElement('button')
     updateBtn.innerText='Update'
-    updateBtn.id='update'
-    updateBtn.addEventListener('click',(event)=>{
-        event.preventDefault()
+    updateBtn.className='update'
+    updateBtn.addEventListener('click',()=>{
         if(!input.checked) 
         {
             inputBox.value=text.innerText
@@ -67,7 +62,7 @@ export const addItems=(selectedCategory,taskText,completed)=>{
 
     const deleteBtn=document.createElement('button')
     deleteBtn.innerText='Delete'
-    deleteBtn.id='delete'
+    deleteBtn.className='delete'
     deleteBtn.addEventListener('click',()=>{
         let idx2=Array.from(list.children).indexOf(listItem)
         if(editing && (idx==idx2)) editing=false
@@ -76,15 +71,12 @@ export const addItems=(selectedCategory,taskText,completed)=>{
         updateProgress()
     })
 
-    div.append(updateBtn)
-    div.append(deleteBtn)
-    listItem.append(input)
-    listItem.append(text)
-    // listItem.append(div)
-    listItem.append(updateBtn)
-    listItem.append(deleteBtn)
+  
+    listItem.appendChild(input)
+    listItem.appendChild(text)
+    listItem.appendChild(updateBtn)
+    listItem.appendChild(deleteBtn)
 
     list.append(listItem)
-    // create li element, add update, delete event and insert
 }
 
